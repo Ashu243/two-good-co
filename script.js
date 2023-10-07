@@ -40,7 +40,11 @@ let videoconAnimation = () => {
     let videocon = document.querySelector("#video-container video");
     let playbtn = document.querySelector("#play");
 
- 
+ const scroll = new LocomotiveScroll({
+  el: document.querySelector("#main"),
+  smooth: true
+});
+
 
     const updatePlayButtonPosition = (mouseX, mouseY) => {
         const videoconRect = videocon.getBoundingClientRect();
