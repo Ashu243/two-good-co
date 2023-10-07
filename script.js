@@ -5,7 +5,10 @@ let locomotiveAnimation = ()=>{
 // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
 const locoScroll = new LocomotiveScroll({
   el: document.querySelector("#main"),
-  smooth: true
+  smooth: true,
+   smartphone: {
+            smooth: true,
+        },
 });
 
 // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
@@ -42,7 +45,10 @@ let videoconAnimation = () => {
 
  const scroll = new LocomotiveScroll({
   el: document.querySelector("#video-container"),
-  smooth: true
+  smooth: true,
+      smartphone: {
+            smooth: true,
+        },
 });
 
 
@@ -81,11 +87,12 @@ let videoconAnimation = () => {
     });
 
     // Update the position even when scrolling
-    scroll.on("scroll", (e) => {
+ scroll.on("scroll", (e) => {
+    if (e.originalEvent) {
         const { clientX, clientY } = e.originalEvent;
-
         updatePlayButtonPosition(clientX, clientY);
-    });
+    }
+});
 };
 
 videoconAnimation();
