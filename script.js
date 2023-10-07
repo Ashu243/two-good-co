@@ -4,10 +4,7 @@ let locomotiveAnimation = ()=>{
 
 // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
 
-const locoScroll = new LocomotiveScroll({
-  el: document.querySelector("#main"),
-  smooth: true
-});
+
 // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
 locoScroll.on("scroll", ScrollTrigger.update);
 
