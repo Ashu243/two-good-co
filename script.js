@@ -3,14 +3,14 @@ let locomotiveAnimation = ()=>{
     gsap.registerPlugin(ScrollTrigger);
 
 // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
+
 const locoScroll = new LocomotiveScroll({
   el: document.querySelector("#main"),
   smooth: true,
-   smartphone: {
-            smooth: true,
-        },
+  smartphone: {
+    smooth: true,
+},
 });
-
 // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
 locoScroll.on("scroll", ScrollTrigger.update);
 
@@ -42,14 +42,14 @@ locomotiveAnimation()
 let videoconAnimation = () => {
     let videocon = document.querySelector("#video-container video");
     let playbtn = document.querySelector("#play");
-
- const scroll = new LocomotiveScroll({
-  el: document.querySelector("#video-container"),
-  smooth: true,
-      smartphone: {
+    const scroll = new LocomotiveScroll({
+        el: document.querySelector("#video-container"),
+        smooth: true,
+        smartphone: {
             smooth: true,
         },
-});
+    });
+    
 
 
     const updatePlayButtonPosition = (mouseX, mouseY) => {
@@ -87,12 +87,12 @@ let videoconAnimation = () => {
     });
 
     // Update the position even when scrolling
- scroll.on("scroll", (e) => {
-    if (e.originalEvent) {
-        const { clientX, clientY } = e.originalEvent;
-        updatePlayButtonPosition(clientX, clientY);
-    }
-});
+    scroll.on("scroll", (e) => {
+        if (e.originalEvent) {
+            const { clientX, clientY } = e.originalEvent;
+            updatePlayButtonPosition(clientX, clientY);
+        }
+    });
 };
 
 videoconAnimation();
